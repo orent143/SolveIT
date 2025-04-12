@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>SolveIt Tech Solutions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Nunito:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/all.min.css">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+      height: 100%;
+      line-height: 1.8;
+    }
+
+    .navbar {
+  position: fixed;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.37);
+  z-index: 10; /* Increased z-index to ensure it stays above all content */
+}
+.btn-navbar {
+  background-color: #5e17eb;
+  color: rgb(255, 255, 255); /* Default text color */
+  padding: 8px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-navbar:hover {
+  background-color: #300e75;
+  color: #ffffff; /* Change font color on hover */
+}
+
+
+.navbar a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.767);
+  padding: 8px 16px;
+  font-weight: 200;
+  font-size: 15px;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #5e17eb;
+}
+
+.navbar a.active {
+  color: #5e17eb;
+  font-weight: bold;
+}
+
+.navbar span {
+  color: #5e17eb;
+  font-weight: bold;
+  font-family: 'Nunito', sans-serif;
+  font-size: 25px;
+}
+
+.navbar .right {
+  display: flex;
+}
+
+    .sidebar {
+      display: none;
+      flex-direction: column;
+      background-color: black;
+      color: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      z-index: 2;
+    }
+
+    .sidebar a {
+      color: white;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+
+    .bgimg-1 {
+  background-image: linear-gradient(to right, rgb(94, 23, 235), #1031929d, rgba(0, 0, 0, 0.575)), url("assets/the-best-digital-marketing-course-certifications-that-will-get-you-hired.jpg");
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  color: white;
+  position: relative;
+}
+    .brand {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  color: #6C63FF; /* change to whatever color you prefer */
+  font-size: 1.5em;
+}
+
+.logo {
+  height: 35px; /* adjust as needed */
+  margin-right: 8px;
+}
+
+.wave-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  z-index: 2; /* Make sure it's visible and above other elements */
+  transform: translateY(0);
+  margin-bottom: -1px; /* Fix any gap */
+}
+
+.wave-container svg {
+  display: block;
+  width: 100%;
+  height: 150px;
+  filter: drop-shadow(0px -2px 2px rgba(0,0,0,0.05)); /* Add subtle shadow for depth */
+}
+
+.wave-container .shape-fill {
+  fill: #FFFFFF;
+}
+
+    .header-content {
+      position: absolute;
+      left: 48px;
+      bottom: 50%;
+      transform: translateY(50%);
+      width: calc(100% - 96px);
+    }
+    
+    .header-content h1 {
+      font-size: 5rem;
+      line-height: 1.2;
+    }
+    
+    .header-content p {
+      font-size: 20px;
+      max-width: 100%;
+    }
+    
+    .header-content br {
+      display: inline-block;
+    }
+    
+    .header-social-icons {
+  position: absolute;
+  bottom: 90px;
+  left: 48px;
+  color: grey;
+  font-size: 20px;
+}
+
+    .about-card {
+  background: rgba(0, 0, 255, 0.137);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  padding: 30px 20px;
+  margin: 20px;
+  max-width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+.about-img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+.about-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(94, 23, 235, 0.2);
+  background: rgba(94, 23, 235, 0.1);
+}
+
+.about-card:hover i {
+  transform: scale(1.2);
+  color: #4a12cc;
+}
+
+.about-card i {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.section#about {
+  padding: 64px 16px 100px; /* adjusted top padding */
+  position: relative;
+  z-index: 2; /* Ensure about section appears above the wave */
+}
+.section {
+  padding: 20px 16px;
+  text-align: center;
+}
+.section h2 {
+  color: #333;
+  font-size: 2.5em;
+}
+    .about-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 40px auto;
+      gap: 30px;
+    }
+
+    .about-text {
+      flex: 1;
+      min-width: 400px;
+      text-align: left;
+      padding: 20px;
+    }
+
+    .about-text h3 {
+      color: #5e17eb;
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .about-text h3:after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: #5e17eb;
+      margin-top: 10px;
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    .about-map {
+      flex: 1;
+      min-width: 400px;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    }
+
+    .about-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .about-stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .stat-item {
+      flex: 1;
+      min-width: 120px;
+      padding: 15px;
+      background: rgba(94, 23, 235, 0.05);
+      border-radius: 8px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(94, 23, 235, 0.1);
+      background: rgba(94, 23, 235, 0.1);
+    }
+
+    .stat-number {
+      font-size: 2.2em;
+      font-weight: 700;
+      color: #5e17eb;
+      margin-bottom: 5px;
+    }
+
+    .stat-label {
+      font-size: 0.9em;
+      color: #666;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .features {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      margin-top: 64px;
+    }
+
+    .feature {
+      flex: 1 1 200px;
+      margin: 20px;
+    }
+
+    .feature i {
+      font-size: 50px;
+      margin-bottom: 20px;
+    }
+
+    .cta {
+      background-color: #f9f9ff;
+      color: #333;
+      padding: 80px 16px;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+    }
+
+    .cta p {
+      font-size: 1.25em;
+      margin-bottom: 30px;
+    }
+
+    .cta a {
+      display: inline-block;
+      background: white;
+      color: black;
+      padding: 12px 24px;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .cta a:hover {
+      background: #5e17eb;
+      color: white;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(94, 23, 235, 0.3);
+    }
+
+
+    .wave-container-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  margin-top: -1px; /* prevents a small visible gap */
+  z-index: 0;
+}
+
+    .wave-container-section svg {
+        display: block;
+      width: 100%;
+      height: 100px;
+    }
+    .wave-dark {
+  background-color: #f9f9ff; /* Matches the footer */
+}
+    .footer {
+        background: #222;
+        color: white;
+        padding: 40px 20px;
+        text-align: center;
+    }
+
+    .footer-content {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .footer-column {
+        flex: 1;
+        min-width: 200px;
+        margin: 20px;
+        text-align: left;
+    }
+
+    .footer-column h3 {
+        color: #5e17eb;
+        margin-bottom: 20px;
+    }
+
+    .footer-column a {
+    color: #ccc;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+    }
+    
+    .footer-column a:hover {
+        color: white;
+    }
+
+    .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .social-icons a:hover {
+      background: #5e17eb;
+      transform: translateY(-3px);
+    }
+
+    .footer .social-icons {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+      justify-content: flex-start;
+    }
+
+    .footer .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      color: white;
+      font-size: 18px;
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .footer .social-icons a:hover {
+      background: #5e17eb;
+      transform: translateY(-3px);
+    }
+
+    .portfolio-grid {
+        display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 64px;
+    }
+
+    .portfolio-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        width: 20%;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+
+    .portfolio-item img {
+        height: 200px;
+        object-fit: cover;
+        transition: transform 0.3s;
+    }
+
+    .portfolio-item:hover img {
+        transform: scale(1.05);
+    }
+
+    .portfolio-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(94, 23, 235, 0.8);
+        color: white;
+        padding: 15px;
+        transform: translateY(100%);
+        transition: transform 0.3s;
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+        transform: translateY(0);
+    }
+
+    .portfolio-item:hover {
+        box-shadow: 0 10px 20px rgba(94, 23, 235, 0.2);
+    }
+
+    .copyright {
+        margin-top: 40px;
+        color: #777;
+        font-size: 14px;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .portfolio-item {
+        width: 40%;
+        margin-bottom: 30px;
+      }
+      
+      .about-container {
+        gap: 40px;
+      }
+      
+      .about-text, .about-map {
+        min-width: 300px;
+      }
+      
+      .about-map {
+        height: 350px;
+      }
+      
+      .header-content h1 {
+        font-size: 4rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .header-content h1 {
+        font-size: 3.5rem;
+      }
+      
+      .header-content br {
+        display: none;
+      }
+      
+      .portfolio-item {
+        width: 80%;
+      }
+      
+      .navbar .right a {
+        padding: 8px 10px;
+      }
+      
+      .features {
+        margin-top: 30px;
+      }
+      
+      .about-card {
+        margin: 10px;
+      }
+      
+      .section {
+        padding: 30px 16px;
+      }
+      
+      .section h2 {
+        font-size: 2em;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .header-content {
+        left: 20px;
+        right: 20px;
+        text-align: left;
+        width: calc(100% - 40px);
+      }
+      
+      .header-content h1 {
+        font-size: 2.5rem;
+      }
+      
+      .header-content p {
+        font-size: 16px;
+      }
+      
+      .about-stats {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      .about-card {
+        max-width: 100%;
+      }
+      
+      .footer-column {
+        min-width: 100%;
+        margin: 10px 0;
+      }
+      
+      .navbar {
+        padding: 10px;
+      }
+      
+      .navbar .right {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+      
+      .navbar .right a {
+        padding: 5px 8px;
+        font-size: 13px;
+      }
+      
+      .btn-navbar {
+        padding: 5px 8px !important;
+        margin-right: 0 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="#home" class="brand">
+        <img src="assets/Techbusinesspurplelogo.png" alt="SolveIT Logo" class="logo">
+        <span>SolveIT</span>
+      </a>  
+    <div class="right">
+    <a href="#about">ABOUT</a>
+    <a href="#services">SERVICES</a>
+    <a href="#portfolio">PORTFOLIO</a>
+    <a href="contact.html" class="btn-navbar" style="color: white; margin-right: 10px; padding: 8px 8px">CONTACT US</a>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="bgimg-1" id="home">
+  <div class="header-content">
+    <h1>
+      Solving<br>
+      business<br>
+      problems with<br>
+      technology.
+    </h1>
+    <p>Making technology work for businesses of all sizes. Offering tailored services in <br>
+      custom software development, network management, and web solutions—designed <br>
+      to meet evolving digital demands and support long-term growth.</p>
+    <a href="#about" style="display:inline-block; background:rgba(0, 0, 182, 0.89); color:white; padding:12px 24px; text-decoration:none; margin-top:10px; font-weight: bold; border-radius:8px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(0, 0, 182, 0.3)';this.style.background='#3330d3';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';this.style.background='rgba(0, 0, 182, 0.89)';">
+      Discover SolveIT
+    </a>
+  </div>
+
+
+</header>
+<div class="wave-container">
+  <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+    <path transform="translate(0, 150)" d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,85.3C672,75,768,85,864,112C960,139,1056,181,1152,181.3C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" fill="#FFFFFF"></path>
+  </svg>
+</div>
+
+<!-- About Section -->
+<section class="section" id="about">
+  <h2>About SolveIT</h2>
+  <div class="about-container">
+    <div class="about-text">
+      <h3>We Transform Business With Technology</h3>
+      <p><strong>SolveIT Tech Solutions</strong> is a passionate startup driven by a shared belief that great technology should be accessible, meaningful, and made with purpose. Founded by tech enthusiasts with a vision of digital innovation, we set out to help businesses and individuals bring their digital ideas to life.</p>
+
+      <p>While we may be new in the industry, our commitment runs deep. From custom web development and IT support to future-ready solutions, we offer agile, cost-effective services built around your unique needs.</p>
+
+      <p>Every project is a collaboration. We listen, adapt, and grow with our clients — turning small beginnings into big breakthroughs. Whether you're launching your first website or automating your operations, we're here to make tech work for you.</p>
+
+      <div class="about-stats" style="display: flex; gap: 30px; flex-wrap: wrap; margin-top: 30px;">
+        <div class="stat-item" style="flex: 1;">
+          <div class="stat-number" style="font-size: 2em; font-weight: bold;">10+</div>
+          <div class="stat-label">Projects Delivered</div>
+        </div>
+        <div class="stat-item" style="flex: 1;">
+          <div class="stat-number" style="font-size: 2em; font-weight: bold;">24/7</div>
+          <div class="stat-label">Client Support</div>
+        </div>
+        <div class="stat-item" style="flex: 1;">
+          <div class="stat-number" style="font-size: 2em; font-weight: bold;">100%</div>
+          <div class="stat-label">Passion-Driven</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="about-map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126459.21809693457!2d125.3972402!3d7.190706599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32f90db93ebbe38f%3A0xa11322e79a6f098b!2sDavao%20City%2C%20Davao%20del%20Sur!5e0!3m2!1sen!2sph!4v1712816322111!5m2!1sen!2sph" style="width:100%; " allowfullscreen="" loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<div class="wave-container-section">
+  <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+    <path d="M0,224L48,218.7C96,213,192,203,288,176C384,149,480,107,576,112C672,117,768,171,864,192C960,213,1056,203,1152,186.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" fill="#f9f9ff"></path>
+  </svg>
+</div>
+  
+<!-- Services Section -->
+<section class="section" id="services" style="background-color: #f9f9ff; position: relative;">
+  <h2>Our Services</h2>
+  <p style="font-size: 1.25em; margin-bottom: 40px; max-width: 800px; margin-inline: auto;">
+    From cutting-edge software development to continuous IT support, SolveIT offers a full suite of services to help your business grow and scale in today's digital landscape.
+  </p>
+
+  <div class="features">
+    <div class="about-card">
+      <i class="fa fa-code" style="font-size: 48px; color: #5e17eb; margin-bottom: 15px;"></i>
+      <p style="font-size:1.2em; font-weight:bold;">Software Development</p>
+      <p>Custom-built applications tailored to your business needs—web, desktop, or mobile.</p>
+      <img src="assets/Techbusinesspurplelogo.png" alt="Custom Development" class="about-img">
+    </div>
+
+    <div class="about-card">
+      <i class="fa fa-laptop" style="font-size: 48px; color: #5e17eb; margin-bottom: 15px;"></i>
+      <p style="font-size:1.2em; font-weight:bold;">Web Design & UX</p>
+      <p>Clean, modern, and responsive designs that provide seamless user experiences.</p>
+      <img src="assets/Techbusinesspurplelogo.png" alt="Custom Development" class="about-img">
+    </div>
+
+    <div class="about-card">
+      <i class="fa fa-headset" style="font-size: 48px; color: #5e17eb; margin-bottom: 15px;"></i>
+      <p style="font-size:1.2em; font-weight:bold;">Tech Support</p>
+      <p>Reliable and on-demand support for your team and your tech infrastructure.</p>
+      <img src="assets/Techbusinesspurplelogo.png" alt="Custom Development" class="about-img">
+    </div>
+  </div>
+</section>
+
+<div class="wave-container-section wave-dark">
+  <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+    <path d="M0,224L48,218.7C96,213,192,203,288,176C384,149,480,107,576,112C672,117,768,171,864,192C960,213,1056,203,1152,186.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" fill="#fff"></path>
+  </svg>
+</div>
+<!-- Portfolio Section -->
+<section class="section" id="portfolio" style="background-color: white; position: relative; padding-top: 100px;">
+  <h2>Our Portfolio</h2>
+  <p style="font-size: 1.25em; margin-bottom: 40px; max-width: 800px; margin-inline: auto;">
+    Explore some of our recent projects. We've helped businesses across various industries leverage technology to achieve their goals.
+  </p>
+  
+  <div class="portfolio-grid">
+    <div class="portfolio-item">
+      <img src="assets/Techbusinesspurplelogo.png" alt="Project 1">
+      <div class="portfolio-overlay">
+        <h3>E-Commerce Platform</h3>
+        <p>Custom shopping experience with integrated payment solutions</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="assets/Techbusinesspurplelogo.png" alt="Project 2">
+      <div class="portfolio-overlay">
+        <h3>Financial Dashboard</h3>
+        <p>Real-time analytics for financial data visualization</p>
+      </div>
+    </div>
+    <div class="portfolio-item">
+      <img src="assets/Techbusinesspurplelogo.png" alt="Project 4">
+      <div class="portfolio-overlay">
+        <h3>Inventory System</h3>
+        <p>Track stock levels, manage orders, and streamline supply chain</p>
+      </div>
+    </div>
+  
+    <div class="portfolio-item">
+      <img src="assets/Techbusinesspurplelogo.png" alt="Project 5">
+      <div class="portfolio-overlay">
+        <h3>Learning Management Platform</h3>
+        <p>Interactive e-learning platform for course management and assessments</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="wave-container-section">
+  <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+    <path d="M0,224L48,218.7C96,213,192,203,288,176C384,149,480,107,576,112C672,117,768,171,864,192C960,213,1056,203,1152,186.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" fill="#f9f9ff"></path>
+  </svg>
+</div>
+<!-- CTA Section -->
+<section class="cta" id="cta" style="position: relative;">
+    <h2>Let's Elevate Your Business</h2>
+    <p>Partner with SolveIT Tech Solutions and unlock your company's full digital potential. <br>
+      Whether you need innovative software, reliable tech support, or scalable IT solutions — we're ready when you are.</p>    <a href="contact.html">Contact Us</a>
+    
+    
+  </section>
+
+  <div class="wave-container-section wave-dark">
+    <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+      <path d="M0,224L48,218.7C96,213,192,203,288,176C384,149,480,107,576,112C672,117,768,171,864,192C960,213,1056,203,1152,186.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" fill="#222"></path>
+    </svg>
+  </div>
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-column">
+      <h3>SolveIT</h3>
+      <p>Solving business problems with technology. We help companies of all sizes transform their operations through innovative tech solutions.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+      </div>
+    </div>
+    <div class="footer-column">
+      <h3>Our Services</h3>
+      <a href="index.html#services">Software Development</a>
+      <a href="index.html#services">Web Design & UX</a>
+      <a href="index.html#services">Tech Support</a>
+      <a href="index.html#services">Network Solutions</a>
+      <a href="index.html#services">IT Consulting</a>
+    </div>
+    <div class="footer-column">
+      <h3>Quick Links</h3>
+      <a href="index.html#home">Home</a>
+      <a href="index.html#about">About Us</a>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#portfolio">Portfolio</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </div>
+  <div class="copyright">
+    &copy; 2025 SolveIT Tech Solutions. All Rights Reserved.
+  </div>
+</footer>
+
+</body>
+</html>
