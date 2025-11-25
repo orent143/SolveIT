@@ -18,21 +18,40 @@
     .navbar {
   position: fixed;
   width: 100%;
-  background-color: white;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center; /* center inner container */
+  align-items: center;
+  z-index: 60; /* keep it above other elements */
+  pointer-events: none; /* allow clicks only on inner content */
+}
+/* Inner wrapper to center navbar content like the about section */
+.nav-inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 12px 24px; /* give some top spacing from window edge */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.37);
-  z-index: 10; /* Increased z-index to ensure it stays above all content */
+  gap: 12px;
+  padding: 10px 18px;
+  background: rgb(255, 255, 255);
+  border-radius: 999px; /* pill */
+  box-shadow: 0 6px 18px rgba(23, 17, 77, 0.08);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  pointer-events: auto; /* allow interaction */
 }
 .btn-navbar {
   background-color: #5e17eb;
   color: rgb(255, 255, 255); /* Default text color */
-  padding: 8px 10px;
-  border-radius: 6px;
-  font-weight: bold;
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-weight: 700;
   text-decoration: none;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  box-shadow: 0 6px 14px rgba(94,23,235,0.18);
 }
 
 .btn-navbar:hover {
@@ -43,15 +62,17 @@
 
 .navbar a {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.767);
-  padding: 8px 16px;
-  font-weight: 200;
-  font-size: 15px;
-  transition: color 0.3s;
+  color: rgba(0, 0, 0, 0.78);
+  padding: 8px 12px;
+  margin: 0 6px;
+  font-weight: 600;
+  font-size: 14px;
+  transition: color 0.18s ease, transform 0.18s ease;
 }
 
 .navbar a:hover {
-  color: #5e17eb;
+  color: #4a12cc;
+  transform: translateY(-2px);
 }
 
 .navbar a.active {
@@ -61,9 +82,10 @@
 
 .navbar span {
   color: #5e17eb;
-  font-weight: bold;
+  font-weight: 800;
   font-family: 'Nunito', sans-serif;
-  font-size: 25px;
+  font-size: 20px;
+  letter-spacing: 0.4px;
 }
 
 .navbar .right {
@@ -135,10 +157,12 @@
 
     .header-content {
       position: absolute;
-      left: 48px;
+      left: 50%;
       bottom: 50%;
-      transform: translateY(50%);
+      transform: translate(-50%, 50%);
       width: calc(100% - 96px);
+      max-width: 1200px; /* same container width as about section */
+      padding: 0 16px;
     }
     
     .header-content h1 {
@@ -178,6 +202,27 @@
   object-fit: cover;
   border-radius: 8px;
   margin-right: 20px;
+}
+.about-icon {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background: rgba(94, 23, 235, 0.06);
+  color: #5e17eb;
+  margin: 0 auto 16px auto;
+}
+.about-icon i {
+  font-size: 40px;
+}
+/* support inline SVG icons inside .about-icon */
+.about-icon svg {
+  width: 48px;
+  height: 48px;
+  display: block;
+  fill: currentColor;
 }
 .about-card:hover {
   transform: translateY(-10px);
@@ -297,15 +342,47 @@
     }
 
     .features {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      margin-top: 64px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+      justify-items: center;
+      align-items: start;
+      margin-top: 48px;
     }
 
-    .feature {
-      flex: 1 1 200px;
-      margin: 20px;
+    /* legacy .feature class intentionally omitted to avoid empty ruleset */
+
+    /* Card layout tweaks */
+    .about-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 28px 22px;
+      width: 100%;
+      max-width: 360px;
+      background: #fff; /* prefer white card on soft background */
+      border: 1px solid rgba(94,23,235,0.06);
+    }
+
+    .about-card p { /* descriptions */
+      color: #444;
+      line-height: 1.6;
+      margin: 12px 0 0 0;
+    }
+
+    .about-card h4, .about-card .card-title {
+      margin-top: 12px;
+      margin-bottom: 8px;
+      color: #2d2d2d;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .about-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 18px 40px rgba(23,17,77,0.08);
+      background: linear-gradient(180deg, rgba(94,23,235,0.03), #ffffff);
     }
 
     .feature i {
@@ -601,18 +678,23 @@
         margin: 10px 0;
       }
       
-      .navbar {
-        padding: 10px;
+      /* On small screens make the nav-inner full width and stack links */
+      .nav-inner {
+        width: calc(100% - 32px);
+        margin: 10px 16px;
+        border-radius: 12px;
+        padding: 8px 12px;
+        justify-content: space-between;
+        gap: 8px;
       }
-      
+
       .navbar .right {
         display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-end;
+        gap: 8px;
       }
       
       .navbar .right a {
-        padding: 5px 8px;
+        padding: 6px 8px;
         font-size: 13px;
       }
       
@@ -625,19 +707,41 @@
 </head>
 <body>
 
-<!-- Navbar -->
-<div class="navbar">
-    <a href="#home" class="brand">
-        <img src="assets/Techbusinesspurplelogo.png" alt="SolveIT Logo" class="logo">
-        <span>SolveIT</span>
-      </a>  
-    <div class="right">
-    <a href="#about">ABOUT</a>
-    <a href="#services">SERVICES</a>
-    <a href="#portfolio">PORTFOLIO</a>
-    <a href="contact.html" class="btn-navbar" style="color: white; margin-right: 10px; padding: 8px 8px">CONTACT US</a>
-  </div>
-</div>
+<!-- Navbar placeholder - loaded from navbar.html -->
+<div id="navbar-placeholder"></div>
+
+<script>
+  (async function() {
+    const placeholder = document.getElementById('navbar-placeholder');
+    const fallback = `
+      <div class="navbar">
+        <div class="nav-inner">
+          <a href="index.html#home" class="brand">
+            <img src="assets/Techbusinesspurplelogo.png" alt="SolveIT Logo" class="logo">
+            <span>SolveIT</span>
+          </a>
+          <div class="right">
+            <a href="index.html#about">ABOUT</a>
+            <a href="index.html#services">SERVICES</a>
+            <a href="index.html#portfolio">PORTFOLIO</a>
+            <a href="contact.html" class="btn-navbar" style="color: white; margin-right: 10px; padding: 8px 8px">CONTACT US</a>
+          </div>
+        </div>
+      </div>
+    `;
+
+    try {
+      const res = await fetch('navbar.html');
+      if (!res.ok) throw new Error('Nav fetch failed: ' + res.status);
+      const html = await res.text();
+      placeholder.innerHTML = html;
+    } catch (err) {
+      // Likely running from file:// or fetch blocked — use fallback markup so navbar is visible
+      console.warn('Could not load navbar.html, injecting fallback. Error:', err);
+      placeholder.innerHTML = fallback;
+    }
+  })();
+</script>
 
 <!-- Header -->
 <header class="bgimg-1" id="home">
@@ -713,24 +817,36 @@
 
   <div class="features">
     <div class="about-card">
-      <i class="fa fa-code" style="font-size: 48px; color: #5e17eb; margin-bottom: 15px;"></i>
-      <p style="font-size:1.2em; font-weight:bold;">Software Development</p>
+      <div class="about-icon" aria-hidden="true">
+        <!-- Code / development SVG -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M8.7 6.3L3 12l5.7 5.7 1.4-1.4L6.8 12l3.3-3.3-1.4-2.4zM15.3 6.3l-1.4 2.4L17.2 12l-3.3 3.3 1.4 1.4L21 12l-5.7-5.7zM11 5h2v14h-2z" />
+        </svg>
+      </div>
+      <div class="card-title">Software Development</div>
       <p>Custom-built applications tailored to your business needs—web, desktop, or mobile.</p>
-      <img src="assets/Techbusinesspurplelogo.png" alt="Custom Development" class="about-img">
     </div>
 
     <div class="about-card">
-      <i class="fa fa-laptop" style="font-size: 48px; color: #5e17eb; margin-bottom: 15px;"></i>
-      <p style="font-size:1.2em; font-weight:bold;">Web Design & UX</p>
+      <div class="about-icon" aria-hidden="true">
+        <!-- Design / brush SVG -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M20.7 5.3c-.4-.4-1-.4-1.4 0l-2 2 1.4 1.4 2-2c.4-.4.4-1 0-1.4zM3 17.3V21h3.7L17.8 9.9l-3.7-3.7L3 17.3zM14.1 6.9l3.7 3.7L9.6 18.8 5.9 15.1 14.1 6.9z" />
+        </svg>
+      </div>
+      <div class="card-title">Web Design & UX</div>
       <p>Clean, modern, and responsive designs that provide seamless user experiences.</p>
-      <img src="assets/Techbusinesspurplelogo.png" alt="Custom Development" class="about-img">
     </div>
 
     <div class="about-card">
-      <i class="fa fa-headset" style="font-size: 48px; color: #5e17eb; margin-bottom: 15px;"></i>
-      <p style="font-size:1.2em; font-weight:bold;">Tech Support</p>
+      <div class="about-icon" aria-hidden="true">
+        <!-- Support / life ring SVG -->
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 3a1 1 0 110 2 1 1 0 010-2zm0 14a1 1 0 110 2 1 1 0 010-2zM4.2 7.8a1 1 0 112-1.6 1 1 0 01-2 1.6zM17.8 16.2a1 1 0 11-2 1.6 1 1 0 012-1.6zM7.8 4.2a1 1 0 11-1.6 2 1 1 0 011.6-2zM16.2 19.8a1 1 0 11-1.6-2 1 1 0 011.6 2z" />
+        </svg>
+      </div>
+      <div class="card-title">Tech Support</div>
       <p>Reliable and on-demand support for your team and your tech infrastructure.</p>
-      <img src="assets/Techbusinesspurplelogo.png" alt="Custom Development" class="about-img">
     </div>
   </div>
 </section>

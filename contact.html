@@ -20,39 +20,75 @@
     .navbar {
       position: fixed;
       width: 100%;
-      background-color: white;
+      top: 0;
+      left: 0;
+      display: flex;
+      justify-content: center; /* center inner container */
+      align-items: center;
+      z-index: 60; /* keep it above other elements */
+      pointer-events: none; /* allow clicks only on inner content */
+    }
+    /* Inner wrapper to center navbar content like the about section */
+    .nav-inner {
+      max-width: 1200px;
+      width: 100%;
+      margin: 12px 24px; /* give some top spacing from window edge */
       display: flex;
       justify-content: space-between;
       align-items: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.37);
-      z-index: 10;
+      gap: 12px;
+      padding: 10px 18px;
+      background: rgb(255, 255, 255);
+      border-radius: 999px; /* pill */
+      box-shadow: 0 6px 18px rgba(23, 17, 77, 0.08);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      pointer-events: auto; /* allow interaction */
+    }
+    .btn-navbar {
+      background-color: #5e17eb;
+      color: rgb(255, 255, 255); /* Default text color */
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+      box-shadow: 0 6px 14px rgba(94,23,235,0.18);
+    }
+
+    .btn-navbar:hover {
+      background-color: #300e75;
+      color: #ffffff; /* Change font color on hover */
     }
 
     .navbar a {
       text-decoration: none;
-      color: rgba(0, 0, 0, 0.767);
-      padding: 8px 16px;
-      font-weight: 200;
-      font-size: 15px;
-      transition: color 0.3s;
+      color: rgba(0, 0, 0, 0.78);
+      padding: 8px 12px;
+      margin: 0 6px;
+      font-weight: 600;
+      font-size: 14px;
+      transition: color 0.18s ease, transform 0.18s ease;
     }
-    
+
     .navbar a:hover {
-      color: #5e17eb;
+      color: #4a12cc;
+      transform: translateY(-2px);
     }
-    
+
     .navbar a.active {
       color: #5e17eb;
       font-weight: bold;
     }
-    
+
     .navbar span {
       color: #5e17eb;
-      font-weight: bold;
+      font-weight: 800;
       font-family: 'Nunito', sans-serif;
-      font-size: 25px;
+      font-size: 20px;
+      letter-spacing: 0.4px;
     }
-    
+
     .navbar .right {
       display: flex;
     }
@@ -347,23 +383,70 @@
         font-size: 2.5rem;
       }
     }
+    
+    @media (max-width: 576px) {
+      .nav-inner {
+        width: calc(100% - 32px);
+        margin: 10px 16px;
+        border-radius: 12px;
+        padding: 8px 12px;
+        justify-content: space-between;
+        gap: 8px;
+      }
+
+      .navbar .right {
+        display: flex;
+        gap: 8px;
+      }
+      
+      .navbar .right a {
+        padding: 6px 8px;
+        font-size: 13px;
+      }
+      
+      .btn-navbar {
+        padding: 5px 8px !important;
+        margin-right: 0 !important;
+      }
+    }
   </style>
 </head>
 
 <body>
-  <!-- Navbar -->
-  <div class="navbar">
-    <a href="index.html#home" class="brand">
-      <img src="assets/Techbusinesspurplelogo.png" alt="SolveIT Logo" class="logo" />
-      <span>SolveIT</span>
-    </a>
-    <div class="right">
-      <a href="index.html#about">ABOUT</a>
-      <a href="index.html#services">SERVICES</a>
-      <a href="index.html#portfolio">PORTFOLIO</a>
-      <a href="contact.html" class="active">CONTACT US</a>
-    </div>
-  </div>
+  <!-- Navbar placeholder - loaded from navbar.html -->
+  <div id="navbar-placeholder"></div>
+
+  <script>
+    (async function() {
+      const placeholder = document.getElementById('navbar-placeholder');
+      const fallback = `
+        <div class="navbar">
+          <div class="nav-inner">
+            <a href="index.html#home" class="brand">
+              <img src="assets/Techbusinesspurplelogo.png" alt="SolveIT Logo" class="logo" />
+              <span>SolveIT</span>
+            </a>
+            <div class="right">
+              <a href="index.html#about">ABOUT</a>
+              <a href="index.html#services">SERVICES</a>
+              <a href="index.html#portfolio">PORTFOLIO</a>
+              <a href="contact.html" class="btn-navbar" style="color: white; margin-right: 10px; padding: 8px 8px">CONTACT US</a>
+            </div>
+          </div>
+        </div>
+      `;
+
+      try {
+        const res = await fetch('navbar.html');
+        if (!res.ok) throw new Error('Nav fetch failed: ' + res.status);
+        const html = await res.text();
+        placeholder.innerHTML = html;
+      } catch (err) {
+        console.warn('Could not load navbar.html, injecting fallback. Error:', err);
+        placeholder.innerHTML = fallback;
+      }
+    })();
+  </script>
 
   <!-- Page Header -->
   <header class="page-header">
@@ -488,12 +571,6 @@
     </div>
   </footer>
 
-  <script>
-    // Ensure navbar remains solid white
-    window.addEventListener('scroll', function() {
-      document.querySelector('.navbar').style.backgroundColor = 'white';
-      document.querySelector('.navbar').style.boxShadow = '0 2px 4px rgba(0, 0, 0, 0.37)';
-    });
-  </script>
+  <!-- removed forced white navbar on scroll to keep nav transparent -->
 </body>
 </html>
