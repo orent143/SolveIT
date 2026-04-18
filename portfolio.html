@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio | SolveIT Tech Solutions</title>
+  <meta name="description" content="See SolveIT case studies with challenge, solution, and measurable outcomes across startup and SMB projects." />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Nunito:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --brand: #5e17eb; --ink: #1f1f2b; --bg: #f7f8ff; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); }
+    .navbar { position: fixed; width: 100%; top: 0; left: 0; display: flex; justify-content: center; z-index: 50; pointer-events: none; }
+    .nav-inner { max-width: 1200px; width: 100%; margin: 12px 24px; padding: 10px 18px; background: #fff; border-radius: 999px; box-shadow: 0 6px 18px rgba(23, 17, 77, 0.08); display: flex; justify-content: space-between; align-items: center; pointer-events: auto; }
+    .brand { display: flex; align-items: center; font-family: 'Nunito', sans-serif; color: var(--brand); font-weight: 700; text-decoration: none; }
+    .logo { height: 35px; margin-right: 8px; }
+    .hero { padding: 140px 20px 70px; background: #2d2566; color: #fff; text-align: center; }
+    .hero h1 { margin: 0 0 12px; font-size: 2.7rem; }
+    .container { max-width: 1120px; margin: 0 auto; padding: 50px 20px 80px; }
+    .case-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+    .case { background: #fff; border-radius: 12px; padding: 22px; box-shadow: 0 10px 26px rgba(22, 18, 58, 0.08); }
+    .case img { width: 100%; height: 190px; object-fit: cover; border-radius: 8px; margin-bottom: 14px; }
+    .result { color: #2f7a1f; font-weight: 700; }
+    .footer { background: #222; color: #ddd; padding: 30px 20px; text-align: center; }
+    @media (max-width: 900px) { .case-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 2.1rem; } }
+  </style>
+</head>
+<body>
+  <div id="navbar-placeholder"></div>
+  <script>
+    (async function () {
+      const p = document.getElementById('navbar-placeholder');
+      try {
+        const res = await fetch('navbar.html');
+        if (!res.ok) throw new Error('failed');
+        p.innerHTML = await res.text();
+      } catch {
+        p.innerHTML = '<div class="navbar"><div class="nav-inner"><a class="brand" href="index.html"><img src="assets/Techbusinesspurplelogo.png" alt="SolveIT Logo" class="logo"><span>SolveIT</span></a></div></div>';
+      }
+    })();
+  </script>
+
+  <header class="hero">
+    <h1>Portfolio & Case Studies</h1>
+    <p>Real projects, clear outcomes, and measurable business impact.</p>
+  </header>
+
+  <main class="container">
+    <section class="case-grid">
+      <article class="case">
+        <img src="assets/IMG_7094.PNG" alt="LMS Platform" />
+        <h2>Learning Management Platform</h2>
+        <p><strong>Challenge:</strong> The client needed a scalable platform for growing online classes.</p>
+        <p><strong>Solution:</strong> Built a role-based LMS dashboard with reporting and content workflows.</p>
+        <p class="result">Result: 95% learner satisfaction and faster instructor onboarding.</p>
+      </article>
+      <article class="case">
+        <img src="assets/diverse-office-programmer-working-on-600nw-2079730714.png" alt="Operations Dashboard" />
+        <h2>Operations Dashboard</h2>
+        <p><strong>Challenge:</strong> Teams relied on manual spreadsheets and delayed reporting.</p>
+        <p><strong>Solution:</strong> Delivered a custom dashboard with live KPI widgets and alerts.</p>
+        <p class="result">Result: 90% reporting time reduction and faster weekly decisions.</p>
+      </article>
+      <article class="case">
+        <img src="assets/Top 5 Cybersecurity Threats in 2023 and How to Defend Against Them _ Aurosign.jpg" alt="Security Monitoring" />
+        <h2>Support & Monitoring Setup</h2>
+        <p><strong>Challenge:</strong> Recurring downtime and unmanaged security risks.</p>
+        <p><strong>Solution:</strong> Introduced proactive support workflows and incident response playbooks.</p>
+        <p class="result">Result: improved uptime and fewer production interruptions.</p>
+      </article>
+      <article class="case">
+        <img src="assets/76383ac3fac2cd60f183520bbaf180d4.jpg" alt="Corporate Website" />
+        <h2>Corporate Website Redesign</h2>
+        <p><strong>Challenge:</strong> Outdated UX and low conversion rates.</p>
+        <p><strong>Solution:</strong> Rebuilt information architecture and conversion-focused landing flow.</p>
+        <p class="result">Result: stronger engagement and increased inbound leads.</p>
+      </article>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 SolveIT Tech Solutions. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us | SolveIt Tech Solutions</title>
+  <meta name="description" content="Contact SolveIT Tech Solutions for web design, web development, and tech support. Book a free consultation with our team.">
+  <meta property="og:title" content="Contact SolveIT Tech Solutions">
+  <meta property="og:description" content="Talk to SolveIT about your next digital project.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="contact.html">
+  <meta name="twitter:card" content="summary">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Nunito:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
   <style>
@@ -107,7 +113,7 @@
     }
 
     .page-header {
-      background-image: linear-gradient(to right, rgb(94, 23, 235), #1031929d, rgba(0, 0, 0, 0.575));
+      background: #2d2566;
       color: white;
       padding: 140px 0 80px;
       text-align: center;
@@ -252,19 +258,29 @@
       background: #5e17eb;
       color: white;
       border: none;
-      padding: 14px 28px;
+      padding: 14px 32px;
       font-weight: bold;
       font-size: 1rem;
       border-radius: 4px;
       cursor: pointer;
-      transition: background 0.3s, transform 0.2s;
+      transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
       margin-top: 10px;
       display: inline-block;
+      box-shadow: 0 8px 20px rgba(94, 23, 235, 0.3);
     }
 
     .contact-form button:hover {
       background: #4a12cc;
       transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(94, 23, 235, 0.4);
+    }
+
+    .contact-form button:focus-visible,
+    .navbar a:focus-visible,
+    .social-icons a:focus-visible,
+    .footer-column a:focus-visible {
+      outline: 3px solid #1e90ff;
+      outline-offset: 3px;
     }
 
     .contact-form button i {
@@ -427,10 +443,12 @@
               <span>SolveIT</span>
             </a>
             <div class="right">
-              <a href="index.html#about">ABOUT</a>
-              <a href="index.html#services">SERVICES</a>
-              <a href="index.html#portfolio">PORTFOLIO</a>
-              <a href="contact.html" class="btn-navbar" style="color: white; margin-right: 10px; padding: 8px 8px">CONTACT US</a>
+              <a href="about.html">ABOUT</a>
+              <a href="services.html">SERVICES</a>
+              <a href="portfolio.html">PORTFOLIO</a>
+              <a href="pricing.html">PRICING</a>
+              <a href="faq.html">FAQ</a>
+              <a href="contact.html" class="btn-navbar" style="color: white; margin-right: 10px; padding: 8px 12px; background: #5e17eb;">BOOK A CALL</a>
             </div>
           </div>
         </div>
@@ -451,8 +469,8 @@
   <!-- Page Header -->
   <header class="page-header">
     <div class="container">
-      <h1>Contact Us</h1>
-      <p>Ready to discuss your project? Reach out to our team and let's start building your solution together.</p>
+      <h1>Let's Talk About Your Project</h1>
+      <p>Ready to bring your vision to life? Reach out to our team. We're excited to learn about your goals and show you how SolveIT can help.</p>
     </div>
     <div class="wave-container-section">
       <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
@@ -492,38 +510,45 @@
             <i class="fa fa-clock-o"></i>
             <div class="content">
               <h4>Working Hours</h4>
-              <p>Monday - Saturday: 9:00 AM - 6:00 PM
+              <p>Monday - Saturday: 9:00 AM - 6:00 PM</p>
             </div>
           </div>
         </div>
         <div class="social-icons">
-          <a href="#"><i class="fa fa-facebook"></i></a>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-          <a href="#"><i class="fa fa-linkedin"></i></a>
-          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa fa-twitter"></i></a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
         </div>
       </div>
 
       <div class="contact-form-container">
         <h3>Send Us A Message</h3>
-        <form class="contact-form">
+        <form class="contact-form" id="contact-form" novalidate>
           <div class="form-group">
             <label for="name">Your Name</label>
-            <input type="text" id="name" placeholder="Enter your name" required>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
           </div>
           <div class="form-group">
             <label for="email">Email Address</label>
-            <input type="email" id="email" placeholder="Enter your email" required>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
           </div>
           <div class="form-group">
             <label for="subject">Subject</label>
-            <input type="text" id="subject" placeholder="Enter subject">
+            <input type="text" id="subject" name="subject" placeholder="Enter subject">
           </div>
           <div class="form-group">
             <label for="message">Your Message</label>
-            <textarea id="message" rows="5" placeholder="Enter your message" required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Enter your message" required></textarea>
+          </div>
+          <div class="form-group">
+            <label>
+              <input type="checkbox" id="consent" required>
+              I agree to be contacted regarding my inquiry.
+            </label>
           </div>
           <button type="submit"><i class="fa fa-paper-plane"></i> Send Message</button>
+          <p id="form-status" style="margin-top: 10px; color: #2f7a1f; display: none;">Thanks! Your request has been received.</p>
         </form>
       </div>
     </div>
@@ -543,27 +568,31 @@
         <h3>SolveIT</h3>
         <p>Solving business problems with technology. We help companies of all sizes transform their operations through innovative tech solutions.</p>
         <div class="social-icons">
-          <a href="#"><i class="fa fa-facebook"></i></a>
-          <a href="#"><i class="fa fa-twitter"></i></a>
-          <a href="#"><i class="fa fa-linkedin"></i></a>
-          <a href="#"><i class="fa fa-instagram"></i></a>
+          <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa fa-twitter"></i></a>
+          <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+          <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
         </div>
       </div>
       <div class="footer-column">
         <h3>Our Services</h3>
-        <a href="index.html#services">Software Development</a>
-        <a href="index.html#services">Web Design & UX</a>
-        <a href="index.html#services">Tech Support</a>
-        <a href="index.html#services">Network Solutions</a>
-        <a href="index.html#services">IT Consulting</a>
+        <a href="services.html">Software Development</a>
+        <a href="services.html">Web Design & UX</a>
+        <a href="services.html">Tech Support</a>
+        <a href="services.html">Network Solutions</a>
+        <a href="services.html">IT Consulting</a>
       </div>
       <div class="footer-column">
         <h3>Quick Links</h3>
-        <a href="index.html#home">Home</a>
-        <a href="index.html#about">About Us</a>
-        <a href="index.html#services">Services</a>
-        <a href="index.html#portfolio">Portfolio</a>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="services.html">Services</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="faq.html">FAQ</a>
         <a href="contact.html">Contact</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms</a>
       </div>
     </div>
     <div class="copyright">
@@ -571,6 +600,25 @@
     </div>
   </footer>
 
-  <!-- removed forced white navbar on scroll to keep nav transparent -->
+  <script>
+    (function () {
+      const form = document.getElementById('contact-form');
+      const status = document.getElementById('form-status');
+      if (!form) return;
+
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        status.style.display = 'block';
+        setTimeout(function () {
+          window.location.href = 'thank-you.html';
+        }, 500);
+      });
+    })();
+  </script>
 </body>
 </html>

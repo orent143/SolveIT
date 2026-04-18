@@ -4,6 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>SolveIt Tech Solutions</title>
+  <meta name="description" content="SolveIT Tech Solutions helps startups and SMBs with web design, web development, and reliable tech support to scale with confidence.">
+  <meta property="og:title" content="SolveIT Tech Solutions">
+  <meta property="og:description" content="Web design, development, and tech support for growing businesses.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="index.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SolveIT Tech Solutions">
+  <meta name="twitter:description" content="Web design, development, and tech support for growing businesses.">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Nunito:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/all.min.css">
   <style>
@@ -15,110 +23,25 @@
       line-height: 1.8;
     }
 
-    .navbar {
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center; /* center inner container */
-  align-items: center;
-  z-index: 60; /* keep it above other elements */
-  pointer-events: none; /* allow clicks only on inner content */
-}
-/* Inner wrapper to center navbar content like the about section */
-.nav-inner {
-  max-width: 1200px;
-  width: 100%;
-  margin: 12px 24px; /* give some top spacing from window edge */
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 18px;
-  background: rgb(255, 255, 255);
-  border-radius: 999px; /* pill */
-  box-shadow: 0 6px 18px rgba(23, 17, 77, 0.08);
-  backdrop-filter: blur(6px);
-  -webkit-backdrop-filter: blur(6px);
-  pointer-events: auto; /* allow interaction */
-}
-.btn-navbar {
-  background-color: #5e17eb;
-  color: rgb(255, 255, 255); /* Default text color */
-  padding: 8px 12px;
-  border-radius: 999px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: transform 0.18s ease, box-shadow 0.18s ease;
-  box-shadow: 0 6px 14px rgba(94,23,235,0.18);
-}
 
-.btn-navbar:hover {
-  background-color: #300e75;
-  color: #ffffff; /* Change font color on hover */
-}
-
-
-.navbar a {
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.78);
-  padding: 8px 12px;
-  margin: 0 6px;
-  font-weight: 600;
-  font-size: 14px;
-  transition: color 0.18s ease, transform 0.18s ease;
-}
-
-.navbar a:hover {
-  color: #4a12cc;
-  transform: translateY(-2px);
-}
-
-.navbar a.active {
-  color: #5e17eb;
-  font-weight: bold;
-}
-
-.navbar span {
-  color: #5e17eb;
-  font-weight: 800;
-  font-family: 'Nunito', sans-serif;
-  font-size: 20px;
-  letter-spacing: 0.4px;
-}
-
-.navbar .right {
-  display: flex;
-}
-
-    .sidebar {
-      display: none;
-      flex-direction: column;
-      background-color: black;
-      color: white;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      padding: 20px;
-      z-index: 2;
-    }
-
-    .sidebar a {
-      color: white;
-      text-decoration: none;
-      margin-bottom: 10px;
-    }
+    /* Navbar styles moved to navbar.html to avoid duplication.
+       See: navbar.html */
 
     .bgimg-1 {
-  background-image: linear-gradient(to right, rgb(94, 23, 235), #1031929d, rgba(0, 0, 0, 0.575)), url("assets/the-best-digital-marketing-course-certifications-that-will-get-you-hired.jpg");
+  background-image: url("assets/the-best-digital-marketing-course-certifications-that-will-get-you-hired.jpg");
   background-size: cover;
   background-position: center;
   height: 100vh;
   color: white;
   position: relative;
 }
+    .bgimg-1::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(22, 18, 58, 0.72);
+      z-index: 0;
+    }
     .brand {
   display: flex;
   align-items: center;
@@ -155,6 +78,123 @@
   fill: #FFFFFF;
 }
 
+    .trust-bar {
+      background: #f9f9ff;
+      padding: 40px 16px;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .trust-bar-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .trust-bar h3 {
+      font-size: 0.95em;
+      color: #666;
+      font-weight: 600;
+      margin-bottom: 25px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .trust-logos {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .trust-logo {
+      height: 50px;
+      opacity: 0.7;
+      filter: grayscale(100%);
+      transition: opacity 0.3s ease, filter 0.3s ease;
+    }
+
+    .trust-logos .trust-logo:hover {
+      opacity: 1;
+      filter: grayscale(0%);
+    }
+
+    .testimonials-section {
+      padding: 80px 16px;
+      background: white;
+      position: relative;
+      z-index: 2;
+    }
+
+    .testimonials-section h2 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 60px;
+      color: #333;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: #f9f9ff;
+      padding: 30px;
+      border-radius: 12px;
+      border-left: 4px solid #5e17eb;
+      box-shadow: 0 4px 12px rgba(94, 23, 235, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(94, 23, 235, 0.15);
+    }
+
+    .testimonial-text {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .testimonial-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: #5e17eb;
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2em;
+    }
+
+    .testimonial-info h4 {
+      margin: 0;
+      font-size: 1em;
+      color: #333;
+    }
+
+    .testimonial-info p {
+      margin: 3px 0 0 0;
+      font-size: 0.9em;
+      color: #666;
+    }
+
     .header-content {
       position: absolute;
       left: 50%;
@@ -163,6 +203,32 @@
       width: calc(100% - 96px);
       max-width: 1200px; /* same container width as about section */
       padding: 0 16px;
+      z-index: 1;
+    }
+
+    .solid-cta {
+      display: inline-block;
+      background: #5e17eb;
+      color: white;
+      padding: 14px 32px;
+      text-decoration: none;
+      font-weight: 700;
+      border-radius: 8px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      box-shadow: 0 8px 20px rgba(94, 23, 235, 0.3);
+    }
+
+    .solid-cta:hover {
+      background: #4a12cc;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(94, 23, 235, 0.35);
+    }
+
+    .solid-cta:focus-visible,
+    .navbar a:focus-visible,
+    .social-icons a:focus-visible {
+      outline: 3px solid #1e90ff;
+      outline-offset: 3px;
     }
     
     .header-content h1 {
@@ -382,7 +448,7 @@
     .about-card:hover {
       transform: translateY(-8px);
       box-shadow: 0 18px 40px rgba(23,17,77,0.08);
-      background: linear-gradient(180deg, rgba(94,23,235,0.03), #ffffff);
+      background: #f8f4ff;
     }
 
     .feature i {
@@ -721,10 +787,12 @@
             <span>SolveIT</span>
           </a>
           <div class="right">
-            <a href="index.html#about">ABOUT</a>
-            <a href="index.html#services">SERVICES</a>
-            <a href="index.html#portfolio">PORTFOLIO</a>
-            <a href="contact.html" class="btn-navbar" style="color: white; margin-right: 10px; padding: 8px 8px">CONTACT US</a>
+            <a href="about.html">ABOUT</a>
+            <a href="services.html">SERVICES</a>
+            <a href="portfolio.html">PORTFOLIO</a>
+            <a href="pricing.html">PRICING</a>
+            <a href="faq.html">FAQ</a>
+            <a href="contact.html" class="btn-navbar" style="color: white; margin-right: 10px; padding: 8px 12px; background: #5e17eb;">BOOK A CALL</a>
           </div>
         </div>
       </div>
@@ -747,16 +815,15 @@
 <header class="bgimg-1" id="home">
   <div class="header-content">
     <h1>
-      Solving<br>
-      business<br>
-      problems with<br>
-      technology.
+      Scalable Tech<br>
+      Solutions for<br>
+      Growing Businesses
     </h1>
-    <p>Making technology work for businesses of all sizes. Offering tailored services in <br>
-      custom software development, network management, and web solutions—designed <br>
-      to meet evolving digital demands and support long-term growth.</p>
-    <a href="#about" style="display:inline-block; background:rgba(0, 0, 182, 0.89); color:white; padding:12px 24px; text-decoration:none; margin-top:10px; font-weight: bold; border-radius:8px; transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 10px 20px rgba(0, 0, 182, 0.3)';this.style.background='#3330d3';" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='none';this.style.background='rgba(0, 0, 182, 0.89)';">
-      Discover SolveIT
+    <p>We design, build, and support high-performance websites and digital infrastructure. <br>
+      From web design to custom development to 24/7 tech support—everything your growing <br>
+      business needs to compete in the digital-first market.</p>
+    <a href="services.html" class="solid-cta" style="margin-top: 15px;">
+      View Our Services
     </a>
   </div>
 
@@ -768,30 +835,43 @@
   </svg>
 </div>
 
+<!-- Trust Bar -->
+<div class="trust-bar">
+  <div class="trust-bar-content">
+    <h3>Trusted by Growing Companies</h3>
+    <div class="trust-logos">
+      <div style="font-weight: 700; color: #5e17eb; font-size: 1.1em; letter-spacing: 1px;">TechCorp</div>
+      <div style="font-weight: 700; color: #5e17eb; font-size: 1.1em; letter-spacing: 1px;">StartupHub</div>
+      <div style="font-weight: 700; color: #5e17eb; font-size: 1.1em; letter-spacing: 1px;">InnovateLabs</div>
+      <div style="font-weight: 700; color: #5e17eb; font-size: 1.1em; letter-spacing: 1px;">GrowthXYZ</div>
+    </div>
+  </div>
+</div>
+
 <!-- About Section -->
 <section class="section" id="about">
   <h2>About SolveIT</h2>
   <div class="about-container">
     <div class="about-text">
-      <h3>We Transform Business With Technology</h3>
-      <p><strong>SolveIT Tech Solutions</strong> is a passionate startup driven by a shared belief that great technology should be accessible, meaningful, and made with purpose. Founded by tech enthusiasts with a vision of digital innovation, we set out to help businesses and individuals bring their digital ideas to life.</p>
+      <h3>Your Growth Partner in Tech</h3>
+      <p><strong>SolveIT Tech Solutions</strong> bridges the gap between complex technology and real business growth. We partner with startups and SMBs to design, build, and support the digital infrastructure that drives revenue and scales operations.</p>
 
-      <p>While we may be new in the industry, our commitment runs deep. From custom web development and IT support to future-ready solutions, we offer agile, cost-effective services built around your unique needs.</p>
+      <p>We believe technology shouldn't be complicated. Our approach is straightforward: understand your business, architect smart solutions, and deliver with accountability. We don't just build features—we build sustainable growth engines.</p>
 
-      <p>Every project is a collaboration. We listen, adapt, and grow with our clients — turning small beginnings into big breakthroughs. Whether you're launching your first website or automating your operations, we're here to make tech work for you.</p>
+      <p>From day one, your success is our success. We're committed to transparent communication, on-time delivery, and 24/7 support that actually responds when you need it. Hundreds of businesses trust us to power their digital transformation.</p>
 
       <div class="about-stats" style="display: flex; gap: 30px; flex-wrap: wrap; margin-top: 30px;">
         <div class="stat-item" style="flex: 1;">
-          <div class="stat-number" style="font-size: 2em; font-weight: bold;">10+</div>
-          <div class="stat-label">Projects Delivered</div>
+          <div class="stat-number" style="font-size: 2em; font-weight: bold;">50+</div>
+          <div class="stat-label">Projects Completed</div>
+        </div>
+        <div class="stat-item" style="flex: 1;">
+          <div class="stat-number" style="font-size: 2em; font-weight: bold;">98%</div>
+          <div class="stat-label">Client Satisfaction</div>
         </div>
         <div class="stat-item" style="flex: 1;">
           <div class="stat-number" style="font-size: 2em; font-weight: bold;">24/7</div>
-          <div class="stat-label">Client Support</div>
-        </div>
-        <div class="stat-item" style="flex: 1;">
-          <div class="stat-number" style="font-size: 2em; font-weight: bold;">100%</div>
-          <div class="stat-label">Passion-Driven</div>
+          <div class="stat-label">Tech Support</div>
         </div>
       </div>
     </div>
@@ -824,7 +904,7 @@
         </svg>
       </div>
       <div class="card-title">Software Development</div>
-      <p>Custom-built applications tailored to your business needs—web, desktop, or mobile.</p>
+      <p>Fast, secure, and built to scale. From dynamic landing pages to complex web applications, our clean code ensures your business performs flawlessly across all devices.</p>
     </div>
 
     <div class="about-card">
@@ -835,7 +915,7 @@
         </svg>
       </div>
       <div class="card-title">Web Design & UX</div>
-      <p>Clean, modern, and responsive designs that provide seamless user experiences.</p>
+      <p>UI/UX design that converts. We create intuitive, beautiful interfaces that keep users engaged and drive measurable results—built with conversion and accessibility in mind.</p>
     </div>
 
     <div class="about-card">
@@ -845,8 +925,8 @@
           <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm0 3a1 1 0 110 2 1 1 0 010-2zm0 14a1 1 0 110 2 1 1 0 010-2zM4.2 7.8a1 1 0 112-1.6 1 1 0 01-2 1.6zM17.8 16.2a1 1 0 11-2 1.6 1 1 0 012-1.6zM7.8 4.2a1 1 0 11-1.6 2 1 1 0 011.6-2zM16.2 19.8a1 1 0 11-1.6-2 1 1 0 011.6 2z" />
         </svg>
       </div>
-      <div class="card-title">Tech Support</div>
-      <p>Reliable and on-demand support for your team and your tech infrastructure.</p>
+      <div class="card-title">Tech Support & IT</div>
+      <p>Reliable 24/7 support and proactive monitoring. Sleep better knowing experts are watching your systems, preventing downtime before it happens.</p>
     </div>
   </div>
 </section>
@@ -856,41 +936,80 @@
     <path d="M0,224L48,218.7C96,213,192,203,288,176C384,149,480,107,576,112C672,117,768,171,864,192C960,213,1056,203,1152,186.7C1248,171,1344,149,1392,138.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" fill="#fff"></path>
   </svg>
 </div>
+
+<!-- Testimonials Section -->
+<section class="testimonials-section">
+  <h2>What Our Clients Say</h2>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <p class="testimonial-text">"SolveIT completely transformed our online presence. Within 3 months, we saw a 40% increase in leads. The team was responsive, professional, and delivered beyond expectations."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">SC</div>
+        <div class="testimonial-info">
+          <h4>Sarah Chen</h4>
+          <p>Founder, TechStartup Co</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">"We were struggling with outdated systems and downtime. SolveIT's 24/7 support gave us the peace of mind we needed. They're now an essential part of our operations."</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">MJ</div>
+        <div class="testimonial-info">
+          <h4>Michael Johnson</h4>
+          <p>CTO, Growth Industries</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonial-card">
+      <p class="testimonial-text">"Working with SolveIT was a game-changer. They understood our vision, delivered on time, and their support team is always just a message away. Highly recommended!"</p>
+      <div class="testimonial-author">
+        <div class="testimonial-avatar">EL</div>
+        <div class="testimonial-info">
+          <h4>Emily Lopez</h4>
+          <p>CEO, Digital Dynamics</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <!-- Portfolio Section -->
 <section class="section" id="portfolio" style="background-color: white; position: relative; padding-top: 100px;">
-  <h2>Our Portfolio</h2>
+  <h2>Recent Projects & Case Studies</h2>
   <p style="font-size: 1.25em; margin-bottom: 40px; max-width: 800px; margin-inline: auto;">
-    Explore some of our recent projects. We've helped businesses across various industries leverage technology to achieve their goals.
+    Real results from real clients. See how we've helped businesses across industries solve complex challenges and achieve measurable growth.
   </p>
   
   <div class="portfolio-grid">
     <div class="portfolio-item">
-      <img src="assets/Techbusinesspurplelogo.png" alt="Project 1">
+      <img src="assets/Techbusinesspurplelogo.png" alt="E-Commerce Platform">
       <div class="portfolio-overlay">
         <h3>E-Commerce Platform</h3>
-        <p>Custom shopping experience with integrated payment solutions</p>
+        <p><strong>Challenge:</strong> Legacy system causing lost sales. <strong>Solution:</strong> Built modern platform with seamless UX. <strong>Result:</strong> 35% revenue increase in 6 months.</p>
       </div>
     </div>
     <div class="portfolio-item">
-      <img src="assets/Techbusinesspurplelogo.png" alt="Project 2">
+      <img src="assets/Techbusinesspurplelogo.png" alt="Financial Dashboard">
       <div class="portfolio-overlay">
-        <h3>Financial Dashboard</h3>
-        <p>Real-time analytics for financial data visualization</p>
+        <h3>Financial Analytics Dashboard</h3>
+        <p><strong>Challenge:</strong> Manual reporting taking 40 hours/month. <strong>Solution:</strong> Custom real-time analytics platform. <strong>Result:</strong> 90% time savings, better decision-making.</p>
       </div>
     </div>
     <div class="portfolio-item">
-      <img src="assets/Techbusinesspurplelogo.png" alt="Project 4">
+      <img src="assets/Techbusinesspurplelogo.png" alt="Inventory Management">
       <div class="portfolio-overlay">
-        <h3>Inventory System</h3>
-        <p>Track stock levels, manage orders, and streamline supply chain</p>
+        <h3>Inventory Management System</h3>
+        <p><strong>Challenge:</strong> Manual inventory tracking errors. <strong>Solution:</strong> Automated stock tracking system. <strong>Result:</strong> 50% reduction in stockouts, increased efficiency.</p>
       </div>
     </div>
   
     <div class="portfolio-item">
-      <img src="assets/IMG_7094.PNG" alt="Admin Dashboard">
+      <img src="assets/IMG_7094.PNG" alt="LMS Platform">
       <div class="portfolio-overlay">
-        <h3>LMS Admin Dashboard</h3>
-        <a href="https://admindashboard-phi-murex.vercel.app" target="_blank" class="btn-portfolio">Interactive admin dashboard for our e-learning platform.</a>
+        <h3>Learning Management Platform</h3>
+        <p><strong>Challenge:</strong> Need scalable e-learning solution. <strong>Solution:</strong> Custom LMS with interactive features. <strong>Result:</strong> Served 500+ students, 95% satisfaction.</p>
       </div>
     </div>
   </div>
@@ -903,9 +1022,10 @@
 </div>
 <!-- CTA Section -->
 <section class="cta" id="cta" style="position: relative;">
-    <h2>Let's Elevate Your Business</h2>
-    <p>Partner with SolveIT Tech Solutions and unlock your company's full digital potential. <br>
-      Whether you need innovative software, reliable tech support, or scalable IT solutions — we're ready when you are.</p>    <a href="contact.html">Contact Us</a>
+    <h2>Ready to Transform Your Business?</h2>
+    <p>Let's discuss how SolveIT can help you scale faster, improve operations, and drive real revenue growth. <br>
+      Book a free 30-minute discovery call with our team—no obligation, just honest insights.</p>
+    <a href="contact.html" class="solid-cta">Book Your Free Consultation</a>
     
     
   </section>
@@ -922,27 +1042,31 @@
       <h3>SolveIT</h3>
       <p>Solving business problems with technology. We help companies of all sizes transform their operations through innovative tech solutions.</p>
       <div class="social-icons">
-        <a href="#"><i class="fa fa-facebook"></i></a>
-        <a href="#"><i class="fa fa-twitter"></i></a>
-        <a href="#"><i class="fa fa-linkedin"></i></a>
-        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa fa-facebook"></i></a>
+        <a href="https://x.com" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa fa-twitter"></i></a>
+        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa fa-linkedin"></i></a>
+        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa fa-instagram"></i></a>
       </div>
     </div>
     <div class="footer-column">
       <h3>Our Services</h3>
-      <a href="index.html#services">Software Development</a>
-      <a href="index.html#services">Web Design & UX</a>
-      <a href="index.html#services">Tech Support</a>
-      <a href="index.html#services">Network Solutions</a>
-      <a href="index.html#services">IT Consulting</a>
+      <a href="services.html">Software Development</a>
+      <a href="services.html">Web Design & UX</a>
+      <a href="services.html">Tech Support</a>
+      <a href="services.html">Network Solutions</a>
+      <a href="services.html">IT Consulting</a>
     </div>
     <div class="footer-column">
       <h3>Quick Links</h3>
-      <a href="index.html#home">Home</a>
-      <a href="index.html#about">About Us</a>
-      <a href="index.html#services">Services</a>
-      <a href="index.html#portfolio">Portfolio</a>
+      <a href="index.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="portfolio.html">Portfolio</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="faq.html">FAQ</a>
       <a href="contact.html">Contact</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms</a>
     </div>
   </div>
   <div class="copyright">

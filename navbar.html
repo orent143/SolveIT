@@ -1,15 +1,149 @@
 <!-- Shared navbar fragment -->
+<style>
+  /* Navbar styles (copied from index.html) - keep navbar self-contained */
+  .navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 60;
+    pointer-events: none;
+  }
+
+  .nav-inner {
+    max-width: 1200px;
+    width: 100%;
+    margin: 12px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 18px;
+    background: rgb(255, 255, 255);
+    border-radius: 999px;
+    box-shadow: 0 6px 18px rgba(23, 17, 77, 0.08);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    pointer-events: auto;
+  }
+
+  .btn-navbar {
+    background-color: #5e17eb;
+    color: rgb(255, 255, 255);
+    padding: 8px 12px;
+    border-radius: 999px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    box-shadow: 0 6px 14px rgba(94,23,235,0.18);
+  }
+
+  .btn-navbar:hover {
+    background-color: #300e75;
+    color: #ffffff;
+  }
+
+  .navbar a {
+    text-decoration: none;
+    color: rgba(0, 0, 0, 0.78);
+    padding: 8px 12px;
+    margin: 0 6px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.18s ease, transform 0.18s ease;
+  }
+
+  .navbar a:hover {
+    color: #4a12cc;
+    transform: translateY(-2px);
+  }
+
+  .navbar a.active {
+    color: #5e17eb;
+    font-weight: bold;
+  }
+
+  .navbar span {
+    color: #5e17eb;
+    font-weight: 800;
+    font-family: 'Nunito', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.4px;
+  }
+
+  .navbar .right {
+    display: flex;
+  }
+
+  .sidebar {
+    display: none;
+    flex-direction: column;
+    background-color: black;
+    color: white;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 2;
+  }
+
+  .sidebar a {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+  }
+
+  /* Responsive navbar tweaks copied from index.css */
+  @media (max-width: 768px) {
+    .navbar .right a {
+      padding: 8px 10px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .nav-inner {
+      width: calc(100% - 32px);
+      margin: 10px 16px;
+      border-radius: 12px;
+      padding: 8px 12px;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .navbar .right {
+      display: flex;
+      gap: 8px;
+    }
+
+    .navbar .right a {
+      padding: 6px 8px;
+      font-size: 13px;
+    }
+
+    .btn-navbar {
+      padding: 5px 8px !important;
+      margin-right: 0 !important;
+    }
+  }
+</style>
+
 <div class="navbar">
   <div class="nav-inner">
-    <a href="index.html#home" class="brand">
+    <a href="index.html" class="brand">
       <img src="assets/Techbusinesspurplelogo.png" alt="SolveIT Logo" class="logo">
       <span>SolveIT</span>
     </a>
     <div class="right">
-      <a href="index.html#about">ABOUT</a>
-      <a href="index.html#services">SERVICES</a>
-      <a href="index.html#portfolio">PORTFOLIO</a>
-      <a href="contact.html" class="btn-navbar" style="color: white; margin-right: 10px; padding: 8px 8px">CONTACT US</a>
+      <a href="about.html">ABOUT</a>
+      <a href="services.html">SERVICES</a>
+      <a href="portfolio.html">PORTFOLIO</a>
+      <a href="pricing.html">PRICING</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contact.html" class="btn-navbar" style="color: white; margin-right: 10px; padding: 8px 12px; background: #5e17eb;">BOOK A CALL</a>
     </div>
   </div>
 </div>
