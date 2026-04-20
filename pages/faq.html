@@ -1,35 +1,679 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FAQ | SolveIT Tech Solutions</title>
-  <meta name="description" content="Frequently asked questions about SolveIT services, project timelines, pricing, and support." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    body { margin: 0; font-family: 'Inter', sans-serif; background: #f7f8ff; color: #1f1f2b; }
-    .top { padding: 120px 20px 50px; text-align: center; background: #2d2566; color: #fff; }
-    .wrap { max-width: 900px; margin: 0 auto; padding: 40px 20px 80px; }
-    details { background: #fff; border: 1px solid #ece8fb; border-radius: 10px; padding: 14px 16px; margin-bottom: 12px; }
-    summary { cursor: pointer; font-weight: 700; }
-  </style>
-</head>
-<body>
-  <header class="top"><h1>Frequently Asked Questions</h1></header>
-  <main class="wrap">
-    <details open><summary>How long does a typical website project take?</summary><p>Most projects take 2 to 8 weeks depending on scope and feedback turnaround.</p></details>
-    <details><summary>Do you provide ongoing support after launch?</summary><p>Yes, we offer maintenance and support plans for updates, monitoring, and fixes.</p></details>
-    <details><summary>Can you redesign our existing website?</summary><p>Yes. We can audit your current site and deliver a phased redesign to improve conversion and performance.</p></details>
-    <details><summary>Do you work with startups?</summary><p>Yes, startups and SMBs are our primary focus.</p></details>
-    <details><summary>How do we start?</summary><p>Use the contact page to book a call. We will run discovery and propose a clear plan.</p></details>
-  </main>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FAQ | SolveIT Tech Solutions</title>
+    <meta
+      name="description"
+      content="Frequently asked questions about SolveIT services, project timelines, pricing, and support."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-<div id="footer-placeholder"></div>
+      :root {
+        --purple: #5e17eb;
+        --purple-dark: #4510c4;
+        --purple-light: #f0ebff;
+        --black: #0d0d0d;
+        --white: #ffffff;
+        --gray-50: #f7f7f7;
+        --gray-100: #efefef;
+        --gray-300: #c4c4c4;
+        --gray-500: #777;
+        --gray-700: #333;
+        --text: #0d0d0d;
+        --text-muted: #666;
+        --radius-sm: 6px;
+        --radius-md: 12px;
+        --radius-lg: 20px;
+        --transition: 0.25s ease;
+      }
 
-<script src="assets/footer-loader.js"></script>
-</body>
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        color: var(--text);
+        background: var(--white);
+        line-height: 1.7;
+        font-size: 16px;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      /* ── NAVBAR ── */
+      .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background: var(--white);
+        border-bottom: 1px solid var(--gray-100);
+        height: 64px;
+        display: flex;
+        align-items: center;
+      }
+      .nav-inner {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 40px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        font-family: "DM Serif Display", serif;
+        font-size: 1.35rem;
+        color: var(--black);
+        letter-spacing: -0.02em;
+      }
+      .brand-dot {
+        color: var(--purple);
+      }
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        list-style: none;
+      }
+      .nav-links a {
+        text-decoration: none;
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: var(--gray-700);
+        padding: 6px 14px;
+        border-radius: var(--radius-sm);
+        transition:
+          color var(--transition),
+          background var(--transition);
+        letter-spacing: 0.01em;
+      }
+      .nav-links a:hover {
+        color: var(--purple);
+        background: var(--purple-light);
+      }
+      .nav-cta {
+        background: var(--purple) !important;
+        color: var(--white) !important;
+        padding: 8px 20px !important;
+        border-radius: var(--radius-sm) !important;
+      }
+      .nav-cta:hover {
+        background: var(--purple-dark) !important;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        min-height: 50vh;
+        background: var(--black);
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        padding: 120px 40px 80px;
+      }
+      .hero-bg-img {
+        position: absolute;
+        inset: 0;
+        background-image: url("../assets/the-best-digital-marketing-course-certifications-that-will-get-you-hired.jpg");
+        background-size: cover;
+        background-position: center;
+        opacity: 0.15;
+      }
+      .hero-accent {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 38%;
+        height: 100%;
+        background: var(--purple);
+        opacity: 0.07;
+        clip-path: polygon(30% 0, 100% 0, 100% 100%, 0% 100%);
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 2;
+        max-width: 1280px;
+        margin: 0 auto;
+        width: 100%;
+      }
+      .hero h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(2.5rem, 5vw, 4.5rem);
+        line-height: 1.1;
+        color: var(--white);
+        letter-spacing: -0.03em;
+        margin-bottom: 20px;
+      }
+      .hero-sub {
+        font-size: 1.1rem;
+        color: rgba(255, 255, 255, 0.6);
+        max-width: 540px;
+        line-height: 1.7;
+        font-weight: 300;
+      }
+
+      /* ── SECTION BASE ── */
+      .section {
+        padding: 100px 40px;
+        max-width: 1280px;
+        margin: 0 auto;
+      }
+      .section-tag {
+        display: inline-block;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--purple);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 16px;
+      }
+      .section-heading {
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        line-height: 1.1;
+        color: var(--black);
+        letter-spacing: -0.025em;
+        margin-bottom: 20px;
+      }
+      .section-sub {
+        font-size: 1.1rem;
+        color: var(--text-muted);
+        max-width: 560px;
+        line-height: 1.75;
+        font-weight: 300;
+      }
+
+      /* ── FAQ ACCORDION ── */
+      .faq-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+        margin-top: 60px;
+      }
+      .faq-item {
+        background: var(--white);
+        border: 1px solid var(--gray-100);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        transition:
+          border-color var(--transition),
+          box-shadow var(--transition);
+      }
+      .faq-item:hover {
+        border-color: var(--purple);
+        box-shadow: 0 12px 28px rgba(94, 23, 235, 0.08);
+      }
+      .faq-toggle {
+        width: 100%;
+        background: var(--white);
+        border: none;
+        padding: 24px;
+        text-align: left;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--black);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        transition: background var(--transition);
+        letter-spacing: -0.01em;
+      }
+      .faq-item:hover .faq-toggle {
+        background: var(--purple-light);
+      }
+      .faq-toggle::after {
+        content: "+";
+        font-size: 1.5rem;
+        color: var(--purple);
+        font-weight: 700;
+        transition: transform var(--transition);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 24px;
+      }
+      .faq-item.open .faq-toggle::after {
+        transform: rotate(45deg);
+      }
+      .faq-content {
+        max-height: 0;
+        overflow: hidden;
+        transition:
+          max-height var(--transition),
+          padding var(--transition);
+        border-top: 1px solid var(--gray-100);
+      }
+      .faq-item.open .faq-content {
+        max-height: 400px;
+        padding: 0 24px 24px;
+      }
+      .faq-content p {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        line-height: 1.75;
+        font-weight: 300;
+        margin: 0;
+      }
+
+      /* ── CTA FINAL ── */
+      .final-cta {
+        background: var(--purple);
+        padding: 80px 40px;
+        text-align: center;
+      }
+      .final-cta h2 {
+        font-family: "DM Serif Display", serif;
+        font-size: clamp(2rem, 4vw, 3rem);
+        color: var(--white);
+        letter-spacing: -0.03em;
+        line-height: 1.2;
+        margin-bottom: 20px;
+      }
+      .final-cta p {
+        font-size: 1.05rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 40px;
+        max-width: 540px;
+        margin-left: auto;
+        margin-right: auto;
+        font-weight: 300;
+        line-height: 1.7;
+      }
+      .btn-white {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: var(--white);
+        color: var(--purple);
+        padding: 16px 40px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        border-radius: var(--radius-sm);
+        transition:
+          background var(--transition),
+          transform var(--transition);
+      }
+      .btn-white:hover {
+        background: var(--black);
+        color: var(--white);
+        transform: translateY(-2px);
+      }
+
+      /* ── FOOTER ── */
+      .footer {
+        background: var(--black);
+        color: var(--white);
+        padding: 80px 40px 40px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+      }
+      .footer-grid {
+        max-width: 1280px;
+        margin: 0 auto 60px;
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 60px;
+      }
+      .footer-brand {
+        font-family: "DM Serif Display", serif;
+        font-size: 1.5rem;
+        color: var(--white);
+        margin-bottom: 16px;
+        letter-spacing: -0.02em;
+      }
+      .footer-brand span {
+        color: var(--purple);
+      }
+      .footer-desc {
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.4);
+        line-height: 1.75;
+        margin-bottom: 24px;
+        font-weight: 300;
+      }
+      .footer-col h4 {
+        font-size: 0.78rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: rgba(255, 255, 255, 0.3);
+        margin-bottom: 20px;
+      }
+      .footer-col a {
+        display: block;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.55);
+        text-decoration: none;
+        margin-bottom: 12px;
+        transition: color var(--transition);
+        font-weight: 300;
+      }
+      .footer-col a:hover {
+        color: var(--white);
+      }
+      .footer-bottom {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding-top: 32px;
+        border-top: 1px solid rgba(255, 255, 255, 0.06);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+      .footer-contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: 12px;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.55);
+        font-weight: 300;
+      }
+      .footer-copy {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.25);
+        font-weight: 300;
+      }
+      .footer-tagline {
+        font-size: 0.82rem;
+        color: rgba(255, 255, 255, 0.2);
+        font-style: italic;
+        font-weight: 300;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 1024px) {
+        .faq-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+        }
+      }
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .hero {
+          padding: 100px 24px 60px;
+        }
+        .section {
+          padding: 60px 24px;
+        }
+        .faq-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .footer {
+          padding: 60px 24px 32px;
+        }
+        .final-cta {
+          padding: 60px 24px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+      <div class="nav-inner">
+        <a href="../index.html" class="brand"
+          >SolveIT<span class="brand-dot">.</span></a
+        >
+        <ul class="nav-links">
+          <li><a href="../index.html#about">About</a></li>
+          <li><a href="../index.html#services">Services</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="../contact.html" class="nav-cta">Book a Call</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="hero-bg-img"></div>
+      <div class="hero-accent"></div>
+      <div class="hero-inner">
+        <h1>Frequently Asked Questions</h1>
+        <p class="hero-sub">
+          Find answers to common questions about our services, pricing,
+          timelines, and support.
+        </p>
+      </div>
+    </header>
+
+    <!-- FAQ SECTION -->
+    <main class="section">
+      <span class="section-tag">Questions?</span>
+      <h2 class="section-heading">Everything You Need<br />to Know</h2>
+      <p class="section-sub">
+        We've compiled the most common questions from our clients and partners.
+        Can't find your answer? Reach out to our team directly.
+      </p>
+
+      <section class="faq-grid">
+        <!-- Question 1 -->
+        <div class="faq-item">
+          <button class="faq-toggle">
+            How long does a typical website project take?
+          </button>
+          <div class="faq-content">
+            <p>
+              Most website projects take 4 to 12 weeks depending on complexity,
+              scope, and feedback turnaround. Starter packages typically take
+              4-6 weeks, while Growth and Scale projects may take 8-12 weeks.
+              We'll provide a detailed timeline during your discovery call.
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="faq-item">
+          <button class="faq-toggle">
+            Do you provide ongoing support after launch?
+          </button>
+          <div class="faq-content">
+            <p>
+              Yes! All our packages include 30–90 days of post-launch support.
+              Beyond that, we offer maintenance and support plans starting at
+              $99/month, which includes updates, monitoring, security patches,
+              and emergency fixes.
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="faq-item">
+          <button class="faq-toggle">
+            Can you redesign our existing website?
+          </button>
+          <div class="faq-content">
+            <p>
+              Absolutely. We conduct a comprehensive audit of your current site,
+              identify performance and conversion issues, and deliver a phased
+              redesign to improve user experience, SEO, and business outcomes.
+              We can migrate your content or start fresh—whatever works best.
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="faq-item">
+          <button class="faq-toggle">
+            Do you work with startups and small businesses?
+          </button>
+          <div class="faq-content">
+            <p>
+              Yes, startups and SMBs are our primary focus! We understand the
+              unique challenges of growing businesses and design affordable,
+              scalable solutions. Our Starter and Growth packages are perfect
+              for early-stage companies looking to establish a strong digital
+              presence.
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 5 -->
+        <div class="faq-item">
+          <button class="faq-toggle">
+            What's included in your ongoing support?
+          </button>
+          <div class="faq-content">
+            <p>
+              Our support packages include: unlimited bug fixes and minor
+              updates, 24/7 monitoring, security updates and SSL management,
+              performance optimization, monthly reporting, and priority
+              technical support via email and calls.
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 6 -->
+        <div class="faq-item">
+          <button class="faq-toggle">How do we get started?</button>
+          <div class="faq-content">
+            <p>
+              Simple! Use the "Book a Call" button to schedule a free 30-minute
+              discovery call. We'll discuss your goals, assess your needs,
+              answer your questions, and provide a detailed proposal. No
+              commitment needed—just honest advice on how we can help.
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 7 -->
+        <div class="faq-item">
+          <button class="faq-toggle">
+            Do you offer payment plans for larger projects?
+          </button>
+          <div class="faq-content">
+            <p>
+              Yes. For projects over $1,500, we offer flexible payment
+              schedules: 30% upfront to start, 40% at project midpoint, and 30%
+              upon completion. Custom payment terms are available upon request.
+            </p>
+          </div>
+        </div>
+
+        <!-- Question 8 -->
+        <div class="faq-item">
+          <button class="faq-toggle">
+            What if I'm not satisfied with the work?
+          </button>
+          <div class="faq-content">
+            <p>
+              Your satisfaction is our priority. We offer unlimited revisions
+              during the project phase to ensure you're happy with the final
+              result. If there are concerns after launch, we'll work with you to
+              resolve them during your included support period.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FINAL CTA -->
+    <div class="final-cta">
+      <h2>Still have questions?</h2>
+      <p>
+        Our team is here to help. Reach out directly or book a consultation to
+        discuss your project in detail.
+      </p>
+      <a href="contact.html" class="btn-white">Get in Touch →</a>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">SolveIT<span>.</span></div>
+          <p class="footer-desc">
+            Smart, reliable, and scalable tech solutions designed to help your
+            business grow. We turn complex problems into simple, effective
+            results.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <a href="../index.html">Home</a>
+          <a href="about.html">About Us</a>
+          <a href="services.html">Services</a>
+          <a href="contact.html">Contact</a>
+          <a href="privacy.html">Privacy Policy</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="services.html">IT Support & Maintenance</a>
+          <a href="services.html">Web Design & Development</a>
+          <a href="services.html">Custom Software</a>
+          <a href="services.html">Cybersecurity</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <div class="footer-contact-item">
+            <span>✉</span>
+            <a href="mailto:info@solveittech.com">info@solveittech.com</a>
+          </div>
+          <div class="footer-contact-item">
+            <span>☎</span>
+            <a href="tel:+63">+63 XXX XXX XXXX</a>
+          </div>
+          <div class="footer-contact-item">
+            <span>⌖</span>
+            <span>Philippines</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p class="footer-copy">
+          © 2026 SolveIT Tech Solutions. All rights reserved.
+        </p>
+        <p class="footer-tagline">
+          Solving your tech problems, one solution at a time.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // FAQ Accordion Functionality
+      const faqItems = document.querySelectorAll(".faq-item");
+      faqItems.forEach((item) => {
+        item.querySelector(".faq-toggle").addEventListener("click", () => {
+          item.classList.toggle("open");
+        });
+      });
+    </script>
+  </body>
 </html>
-
-
-
-
